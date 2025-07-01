@@ -1,0 +1,11 @@
+build:
+  cuda_version: "12.1.1"
+  python_packages:
+    - accelerate==1.8.1
+    - sentence-transformers==4.1.0
+    - torch==2.7.0
+    - inferless==0.2.13
+    - pydantic==2.10.2
+    - hf_transfer==0.1.9
+  run:
+    - "pip install flash_attn==2.8.0.post2"
