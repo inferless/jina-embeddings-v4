@@ -47,11 +47,13 @@ curl --location '<your_inference_url>' \
                         "datatype": "BYTES"},
                   {
                         "name": "task",
+                        "optional": true,
                         "shape": [1],
                         "data": ["code"],
                         "datatype": "BYTES"},
                     {
                         "name": "prompt_name",
+                        "optional": true,
                         "shape": [1],
                         "data": ["query"],
                         "datatype": "BYTES"
