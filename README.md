@@ -2,7 +2,7 @@
 Jina Embeddings v4 is a 3.8 billion‑parameter multimodal and multilingual embedding model, purpose‑built for unified retrieval across text, images, visual documents, and code. Built atop the Qwen2.5‑VL‑3B‑Instruct backbone, it replaces traditional encoder‑only approaches with a single, shared pathway that processes both text and vision—greatly narrowing the modality gap.
 
 ## TL;DR:
-- Deployment of Qwen3-Embedding-0.6B model using [sentence-transformers](https://github.com/UKPLab/sentence-transformers).
+- Deployment of Jina-Embeddings-v4 model using [sentence-transformers](https://github.com/UKPLab/sentence-transformers).
 - Dependencies defined in `inferless-runtime-config.yaml`.
 - GitHub/GitLab template creation with `app.py`, `inferless-runtime-config.yaml` and `inferless.yaml`.
 - Model class in `app.py` with `initialize`, `infer`, and `finalize` functions.
@@ -41,15 +41,19 @@ curl --location '<your_inference_url>' \
     --data '{
       "inputs": [
                   {
-                        "name": "query",
+                        "name": "sentences",
                         "shape": [1],
-                        "data": ["What is the capital of China?"],
-                        "datatype": "BYTES"
-                      },
+                        "data": ["Find a function that prints a greeting message to the console"],
+                        "datatype": "BYTES"},
+                  {
+                        "name": "task",
+                        "shape": [1],
+                        "data": ["code"],
+                        "datatype": "BYTES"},
                     {
-                        "name": "document",
+                        "name": "prompt_name",
                         "shape": [1],
-                        "data": ["The capital of China is Beijing."],
+                        "data": ["query"],
                         "datatype": "BYTES"
                       }
     ]
